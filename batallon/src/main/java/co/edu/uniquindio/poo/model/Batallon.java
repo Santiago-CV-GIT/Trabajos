@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Batallon {
     private String nombre;
@@ -17,7 +18,7 @@ public class Batallon {
     public String agregarVehiculo(String id, String modelo, String fechaFabricacion, int kilometraje, EstadoOperativo estadoOperativo) {
         String mensaje = "";
         Vehiculo encontrado = null;
-        encontrado = buscarVehiculo(id);
+        Optional<Vehiculo> optionalVehiculo = buscarVehiculo(id);
         Vehiculo nuevoVehiculo = null;
         if (encontrado != null) {
             mensaje = " El vehiculo ya existe";
@@ -29,7 +30,7 @@ public class Batallon {
         return mensaje;
     }
 
-    public Vehiculo buscarVehiculo(String idVehiculo) {
+    /**public Vehiculo buscarVehiculo(String idVehiculo) {
         Vehiculo encontrado = null;
         for (Vehiculo aux : listaVehiculos) {
             if(aux.getId().equals(idVehiculo)) {
@@ -38,11 +39,22 @@ public class Batallon {
         }
         return encontrado;
     }
+     */
+    public Vehiculo buscarVehiculomision(){
+        for (Mision aux  :listaMisiones ) {
+            ArrayList<Vehiculo> vehiculosmisiones=aux.getVehiculosRequeridos();
+            if () {}
+        }
+    }
+    public Optional<Vehiculo> buscarVehiculo(String id) {
+        return Optional.of(listaVehiculos.stream().filter(v -> v != null && v.getId().equals(id)).findFirst().get());
+    }
+
 
     public String actualizarVehiculo(String idVehiculo, int newKilometraje, EstadoOperativo newEstadoOperativo) {
         String mensaje = "";
         Vehiculo encontrado = null;
-        encontrado = buscarVehiculo(idVehiculo);
+        Optional<Vehiculo> optionalVehiculo = buscarVehiculo(idVehiculo);
         if (encontrado != null) {
             encontrado.setKilometraje(newKilometraje);
             encontrado.setEstadoOperativo(newEstadoOperativo);
@@ -56,7 +68,7 @@ public class Batallon {
     public String eliminarVehiculo(String idVehiculo) {
         String mensaje = "";
         Vehiculo encontrado = null;
-        encontrado = buscarVehiculo(idVehiculo);
+        Optional<Vehiculo> optionalVehiculo = buscarVehiculo(idVehiculo);
         if (encontrado != null) {
             listaVehiculos.remove(encontrado);
             mensaje = " El vehiculo se ha eliminado";
