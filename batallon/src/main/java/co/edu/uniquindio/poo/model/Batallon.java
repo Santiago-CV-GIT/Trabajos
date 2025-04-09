@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo.model;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
 public class Batallon {
     private String nombre;
     private String ubicacion;
@@ -23,7 +24,7 @@ public class Batallon {
         if (encontrado != null) {
             mensaje = " El vehiculo ya existe";
         }else{
-            nuevoVehiculo= new Vehiculo(id, modelo, fechaFabricacion, kilometraje, estadoOperativo);
+            nuevoVehiculo= new Vehiculo(id, modelo, fechaFabricacion, kilometraje, estadoOperativo,1);
             listaVehiculos.add(nuevoVehiculo);
             mensaje = " El vehiculo se ha registrado";
         }
@@ -40,12 +41,17 @@ public class Batallon {
         return encontrado;
     }
      */
-    public Vehiculo buscarVehiculomision(){
-        for (Mision aux  :listaMisiones ) {
-            ArrayList<Vehiculo> vehiculosmisiones=aux.getVehiculosRequeridos();
-            if () {}
-        }
+    public ArrayList<Vehiculo> buscarVehiculomision(int nummisionesbuscar){
+        ArrayList<Vehiculo> misionesmayorque=new ArrayList<>();
+        for(Vehiculo aux:listaVehiculos){
+            if(nummisionesbuscar==aux.getMisiones());
+            misionesmayorque.add(aux);
+        }return misionesmayorque;
+
     }
+    
+
+
     public Optional<Vehiculo> buscarVehiculo(String id) {
         return Optional.of(listaVehiculos.stream().filter(v -> v != null && v.getId().equals(id)).findFirst().get());
     }
