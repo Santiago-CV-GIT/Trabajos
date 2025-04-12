@@ -129,7 +129,7 @@ public class Batallon {
         if (encontrado != null) {
             mensaje = "La soldada ya existe en el sistema";
         }else{
-            nuevoSoldado = new Soldado(id, rango, nombre, apellido, edad);
+            nuevoSoldado = new Soldado(id,rango,nombre,apellido,edad,listaMisiones);
             listaSoldados.add(nuevoSoldado);
             mensaje = " El soldada se ha agregado";
         }
@@ -147,7 +147,7 @@ public class Batallon {
     }
 
 
-    public String actualizarSoldado(String id, String newRango, String newNombre){
+    /**public String actualizarSoldado(String id, String newRango, String newNombre){
         String mensaje = "";
         Soldado encontrado = null;
         encontrado = buscarSoldado(id);
@@ -160,7 +160,7 @@ public class Batallon {
         }
         return mensaje;
     }
-
+*/
 
     public String eliminarSoldado(String id){
         String mensaje = "";
