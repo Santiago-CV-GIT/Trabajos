@@ -10,6 +10,10 @@ class BatallonTest {
 
     private static final Logger LOG = Logger.getLogger(BatallonTest.class.getName());
 
+    public boolean datocorrecto(){
+        return true;
+    }
+
     @Test
     public void testBatallon() {
         LOG.info("Prueba Batallon");
@@ -35,6 +39,10 @@ class BatallonTest {
 
          assertNull(Mibatallon2.getUbicacion());
 
+         LOG.info("Fin");
+
+         LOG.info("Prueba Batallon4");
+         assertTrue(datocorrecto());
          LOG.info("Fin");
 
     }

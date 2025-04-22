@@ -14,6 +14,9 @@ public class Batallon {
     public Batallon(String nombre, String ubicacion) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
+        this.listaVehiculos = new ArrayList<>();
+        this.listaMisiones = new ArrayList<>();
+        this.listaSoldados = new ArrayList<>();
     }
 
     public String agregarVehiculo(String id, String modelo, String fechaFabricacion, int kilometraje, EstadoOperativo estadoOperativo) {
