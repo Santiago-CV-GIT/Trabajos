@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,9 @@ class BatallonTest {
         LOG.info("Prueba Batallon");
 
         Batallon mibatallon = new Batallon("PEPE", "NORTE");
+        ArrayList<Mision> listamisiones1=new ArrayList<>();
+        ArrayList<Soldado> listasoldado=new ArrayList<>();
+        mibatallon.agregarSoldado("12","MAYOR","Esteban","Castillo",19,listamisiones1);
         String ubi = mibatallon.getUbicacion();
         assertEquals("NORTE", ubi);
 

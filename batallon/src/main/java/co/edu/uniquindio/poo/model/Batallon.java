@@ -124,7 +124,7 @@ public class Batallon {
         return mensaje;
     }
 
-    public String agregarSoldado(String id, String rango, String nombre, String apellido, int edad){
+    public String agregarSoldado(String id, String rango, String nombre, String apellido, int edad,ArrayList<Mision> listaMisiones) {
         String mensaje = "";
         Soldado encontrado = null;
         encontrado = buscarSoldado(id);
